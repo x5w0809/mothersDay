@@ -1,0 +1,1105 @@
+@font-face {
+    font-family: 'SemplicitaPro-Bold';
+    src: url("../font/SemplicitaPro-Bold.otf");
+}
+$font-Btn:'SemplicitaPro-Bold';
+@mixin btnHoverTransition() {
+    transition: all 0.25s ease;
+}
+$topCardWidth_pc: 1920px;
+$topCardHeight_pc: 841px;
+$topCardWidth_mb: 640px;
+$topCardHeight_mb: 1313px;
+$popWidth: 100px;
+$popWidth_mb: 80px;
+
+.mainPage {
+    display: block;
+}
+// .container {
+//     padding-bottom: 128px;
+//     @include mobs-width {
+//         padding-bottom: 80px;
+//     }
+// }
+
+.scratchArea{
+    transform-origin: left top;
+    border-radius: 50%;
+    position: absolute;
+    left: #{math.div(885px, $topCardWidth_pc) * 100%};
+    top: #{math.div(77px, $topCardHeight_pc) * 100%};
+    @include mob-width {
+        display: none ;
+    }
+}
+.scratchArea_mb{ 
+    display: none ;
+    @include mob-width {
+        display: block ;
+        transform-origin: left top;
+        border-radius: 50%;
+        position: absolute;
+        left: #{math.div(43px, $topCardWidth_mb) * 100%};
+        top: #{math.div(348px, $topCardHeight_mb) * 100%};
+    }
+}
+#coating{
+    z-index: 2;
+    cursor: url('https://obcdn4.obdesign.com.tw/OB_Images/html/events/fe22042501/pc/handIcon.png'), auto;
+}
+
+#scratchBg{   
+    z-index: 1;
+}
+#coating_mb{
+    z-index: 2;
+    cursor: url('https://obcdn4.obdesign.com.tw/OB_Images/html/events/fe22042501/pc/handIcon.png'), auto;
+}
+
+#scratchBg_mb{   
+    z-index: 1;
+}
+.desArea{
+    position: relative;
+    margin-top: -60px;
+    width: 100%;
+    background: #f5b9d9;
+    border-radius: 50px;
+    @include mob-width {
+        margin-top: -29.0625%;
+    }
+}
+section {
+    padding-top: 78px;
+    z-index: 2;
+    @include mob-width {
+        padding-top: 71px;
+    }
+    @include mobs-width {
+        padding-top: 29px;
+    }
+    &#instruction {
+        .descriptionBox {
+            margin-bottom: 76px;
+            @include mob-width {
+                margin-bottom: 38px;
+            }
+            @include mobs-width {
+                margin-bottom: 50px;
+            }
+        }
+
+        ul {
+            font-family: $fontfamily4;
+            font-size: 18px;
+            color: #000;
+            letter-spacing: 1.62px;
+            line-height: 1.7;
+            font-weight: bold;
+            @include mob-width {
+                font-size: 20px;
+            }
+            @include mobms-width {
+                font-size: 18px;
+            }
+            @include mobs-width {
+                font-size: 15px;
+            }
+            &.default {
+                list-style: none;
+                > li {
+                    padding-top: 35px;
+                    @include mobs-width {
+                        padding-top: 20px;
+                    }
+                    &:first-child {
+                        padding-top: 0;
+                    }
+                }
+            }
+            .contentDes{
+                font-weight: normal;
+                .desbr{
+                    @include mob-width {
+                        display: none;
+                    }
+                    @include mobs-width {
+                        display: none;
+                    }
+                }
+            }
+            &.decimal {
+                list-style-type: decimal;
+                padding-left: 25px;
+                font-weight: normal;
+            }
+        }
+        .btnBox {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+.btn-shop {
+    width: 560px;
+    background-color: #fafdf6;
+    border-radius: 10px;
+    font-family: $font-Btn;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.54px;
+    text-align: center;
+    color: #fd4989;
+    padding: 15px 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 119px;
+    @include user-select-none();
+    @include mob-width {
+        margin-bottom: 34px;
+    }
+    @include mobs-width {
+        font-size: 15px;
+    }
+    &:hover {
+        // background-color: #caa77c;
+        background-color: #fd4989;
+        box-shadow: 0px 5px 9px -2px rgb(212, 85, 129);
+        color: #fafdf6;
+        transform: translate(0px, -3px);
+        &:after {
+        }
+    }
+}
+
+.mainContent {
+    position: relative;
+}
+
+.topCard{
+    position: relative;
+    width: 100%;
+    height: 41.6666vw;
+    background: url(#{$imgCdnPath +'pc/bg.png'}) no-repeat center;
+    background-size: cover;
+    @include mob-width {
+        height: 205.1562vw;
+    }
+    .bgIcon{
+        @for $i from 1 through 5 {
+            .bgIcon__#{$i} {
+                &-anime {
+                    position: absolute;
+                    @include mob-width {
+                        $w: 37px;
+                        $h: 38px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                    }
+                    @if $i == 1 {
+                        left: #{math.div(-269px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(167px, $topCardHeight_pc) * 100%};
+                        $w: 465px;
+                        $h: 465px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            $w: 373px;
+                            $h: 373px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                            left: #{math.div(-259px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(230px, $topCardHeight_mb) * 100%};
+                        }
+                    } @else if $i == 2 {
+                        left: #{math.div(515px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(641px, $topCardHeight_pc) * 100%};
+                        $w: 337px;
+                        $h: 336px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            $w: 271px;
+                            $h: 272px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                            left: #{math.div(120px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(1026px, $topCardHeight_mb) * 100%};
+                        }
+                    } @else if $i == 3 {
+                        left: #{math.div(1596px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(-173px, $topCardHeight_pc) * 100%};
+                        $w: 285px;
+                        $h: 285px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            $w: 235px;
+                            $h: 234px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                            left: #{math.div(483px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(-157px, $topCardHeight_mb) * 100%};
+                        }
+                    } @else if $i == 4 {
+                        left: #{math.div(714px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(58px, $topCardHeight_pc) * 100%};
+                        $w: 104px;
+                        $h: 104px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            $w: 90px;
+                            $h: 90px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                            left: #{math.div(89px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(45px, $topCardHeight_mb) * 100%};
+                        }
+                    } @else if $i == 5 {
+                        left: #{math.div(1484px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(656px, $topCardHeight_pc) * 100%};
+                        $w: 254px;
+                        $h: 254px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            $w: 254px;
+                            $h: 254px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                            left: #{math.div(44px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(1071px, $topCardHeight_mb) * 100%};
+                        }
+                    }
+                    &-obj {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        @if $i == 1 {
+                            background-image: url(#{$imgCdnPath + 'pc/circle-2.png'});
+                        } @else if $i == 2 {
+                            background-image: url(#{$imgCdnPath + 'pc/circle.png'});
+                        } @else if $i == 3 {
+                            background-image: url(#{$imgCdnPath + 'pc/circle-1.png'});
+                        } @else if $i == 4 {
+                            background-image: url(#{$imgCdnPath + 'pc/dot-1.png'});
+                        } @else if $i == 5 {
+                            background-image: url(#{$imgCdnPath + 'pc/dot-2.png'});
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .pinkTitle{
+        .pinkTitle__1{
+            &-anime{
+                transform-origin: bottom center;
+                left: #{math.div(368px, $topCardWidth_pc) * 100%};
+                top: #{math.div(147px, $topCardHeight_pc) * 100%};
+                $w: 385px;
+                $h: 77px;
+                @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                position: absolute;
+                @include mob-width {
+                    left: #{math.div(138px, $topCardWidth_mb) * 100%};
+                    top: #{math.div(71px, $topCardHeight_mb) * 100%};
+                    $w: 385px;
+                    $h: 77px;
+                    @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                }
+                &-obj{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: url(#{$imgCdnPath +'pc/title1.png'}) no-repeat center;
+                    background-size: 100%;
+                }
+            }
+        }
+        .pinkTitle__2{
+            &-anime{
+                left: #{math.div(330px, $topCardWidth_pc) * 100%};
+                top: #{math.div(239px, $topCardHeight_pc) * 100%};
+                $w: 432px;
+                $h: 109px;
+                @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                position: absolute;
+                transform-origin: left;
+                @include mob-width {
+                    left: #{math.div(100px, $topCardWidth_mb) * 100%};
+                    top: #{math.div(163px, $topCardHeight_mb) * 100%};
+                    $w: 432px;
+                    $h: 109px;
+                    @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                }
+                &-obj{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: url(#{$imgCdnPath +'pc/title2.png'}) no-repeat center;
+                    background-size: 100%;
+                }
+            }
+        }
+        .pinkTitle__3{
+            &-anime{
+                transform-origin: bottom center;
+                left: #{math.div(412px, $topCardWidth_pc) * 100%};
+                top: #{math.div(356px, $topCardHeight_pc) * 100%};
+                $w: 259px;
+                $h: 42px;
+                @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                position: absolute;
+                @include mob-width {
+                    left: #{math.div(184px, $topCardWidth_mb) * 100%};
+                    top: #{math.div(276px, $topCardHeight_mb) * 100%};
+                    $w: 259px;
+                    $h: 42px;
+                    @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                }
+                &-obj{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: url(#{$imgCdnPath +'pc/title3.png'}) no-repeat center;
+                    background-size: 100%;
+                }
+            }
+        }
+    }
+    .mainTitle{
+        @for $i from 1 through 6 {
+            .mainTitle__#{$i} {
+                &-anime {
+                    position: absolute;
+                    @if $i == 1 {
+                        left: #{math.div(355px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(425px, $topCardHeight_pc) * 100%};
+                        $w: 414px;
+                        $h: 107px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            left: #{math.div(48px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(901px, $topCardHeight_mb) * 100%};
+                            $w: 366px;
+                            $h: 94px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                        }
+                    } @else if $i == 2 {
+                        left: #{math.div(530px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(555px, $topCardHeight_pc) * 100%};
+                        $w: 424px;
+                        $h: 62px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            left: #{math.div(445px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(926px, $topCardHeight_mb) * 100%};
+                            $w: 159px;
+                            $h: 35px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                        }
+                    } @else if $i == 3 {
+                        left: #{math.div(360px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(577px, $topCardHeight_pc) * 100%};
+                        $w: 159px;
+                        $h: 35px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            left: #{math.div(443px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(976px, $topCardHeight_mb) * 100%};
+                            $w: 165px;
+                            $h: 18px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                        }
+                    } @else if $i == 4 {
+                        left: #{math.div(1439px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(475px, $topCardHeight_pc) * 100%};
+                        $w: 170px;
+                        $h: 69px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            left: #{math.div(42px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(1025px, $topCardHeight_mb) * 100%};
+                            $w: 378px;
+                            $h: 55px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                        }
+                    } @else if $i == 5 {
+                        left: #{math.div(1450px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(564px, $topCardHeight_pc) * 100%};
+                        $w: 158px;
+                        $h: 18px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            left: #{math.div(462px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(1022px, $topCardHeight_mb) * 100%};
+                            $w: 142px;
+                            $h: 57px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                        }
+                    } @else if $i == 6 {
+                        left: #{math.div(1449px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(591px, $topCardHeight_pc) * 100%};
+                        $w: 165px;
+                        $h: 18px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            display: none;
+                        }
+                    }
+                    &-obj {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        @if $i == 1 {
+                            background-image: url(#{$imgCdnPath + 'pc/title4.png'});
+                        } @else if $i == 2 {
+                            background-image: url(#{$imgCdnPath + 'pc/title6.png'});
+                            @include mob-width {
+                                background-image: url(#{$imgCdnPath + 'pc/title5.png'});
+                            }
+                        } @else if $i == 3 {
+                            background-image: url(#{$imgCdnPath + 'pc/title5.png'});
+                            @include mob-width {
+                                background-image: url(#{$imgCdnPath + 'pc/title9.png'});
+                            }
+                        } @else if $i == 4 {
+                            background-image: url(#{$imgCdnPath + 'pc/title7.png'});
+                            @include mob-width {
+                                background-image: url(#{$imgCdnPath + 'pc/title6.png'});
+                            }
+                        } @else if $i == 5 {
+                            background-image: url(#{$imgCdnPath + 'pc/title8.png'});
+                            @include mob-width {
+                                background-image: url(#{$imgCdnPath + 'pc/title7.png'});
+                            }
+                        } @else if $i == 6 {
+                            background-image: url(#{$imgCdnPath + 'pc/title9.png'});
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .flower{
+        &-anime{
+            left: #{math.div(715px, $topCardWidth_pc) * 100%};
+            top: #{math.div(400px, $topCardHeight_pc) * 100%};
+            $w: 72px;
+            $h: 92px;
+            @include getImgBoxSize($w, $h, $topCardWidth_pc);
+            position: absolute;
+            z-index: 3;
+            @include mob-width {
+                left: #{math.div(365px, $topCardWidth_mb) * 100%};
+                top: #{math.div(880px, $topCardHeight_mb) * 100%};
+                $w: 63px;
+                $h: 81px;
+                @include getImgBoxSize($w, $h, $topCardWidth_mb);
+            }
+            &-obj{
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                background: url(#{$imgCdnPath +'pc/titleFlower.png'}) no-repeat center;
+                background-size: 100%;
+            }
+        }
+    }
+    .flowerIconAnime{
+        opacity: 0;
+    }
+    .flowerIcon{
+        @for $i from 1 through 5 {
+            .flowerIcon__#{$i} {
+                &-anime {
+                    position: absolute;
+                    @include mob-width {
+                        $w: 37px;
+                        $h: 38px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                    }
+                    @if $i == 1 {
+                        left: #{math.div(256px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(129px, $topCardHeight_pc) * 100%};
+                        $w: 51px;
+                        $h: 50px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            left: #{math.div(47px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(132px, $topCardHeight_mb) * 100%};
+                            $w: 39px;
+                            $h: 38px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                        }
+                    } @else if $i == 2 {
+                        left: #{math.div(771px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(245px, $topCardHeight_pc) * 100%};
+                        $w: 51px;
+                        $h: 50px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            display: none;
+                        }
+                    } @else if $i == 3 {
+                        left: #{math.div(870px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(192px, $topCardHeight_pc) * 100%};
+                        $w: 31px;
+                        $h: 30.3921px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            display: none;
+                        }
+                    } @else if $i == 4 {
+                        left: #{math.div(1632px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(504px, $topCardHeight_pc) * 100%};
+                        $w: 31px;
+                        $h: 33px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            left: #{math.div(533px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(1064px, $topCardHeight_mb) * 100%};
+                            $w: 39px;
+                            $h: 38px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                        }
+                    } @else if $i == 5 {
+                        left: #{math.div(1730px, $topCardWidth_pc) * 100%};
+                        top: #{math.div(514px, $topCardHeight_pc) * 100%};
+                        $w: 50px;
+                        $h: 53px;
+                        @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                        @include mob-width {
+                            left: #{math.div(565px, $topCardWidth_mb) * 100%};
+                            top: #{math.div(1070px, $topCardHeight_mb) * 100%};
+                            $w: 48.7179px;
+                            $h: 50px;
+                            @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                        }
+                    }
+                    &-obj {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        @if $i == 1 {
+                            background-image: url(#{$imgCdnPath + 'pc/flower-1.png'});
+                        } @else if $i == 2 {
+                            background-image: url(#{$imgCdnPath + 'pc/flower-1.png'});
+                        } @else if $i == 3 {
+                            background-image: url(#{$imgCdnPath + 'pc/flower-1.png'});
+                        } @else if $i == 4 {
+                            background-image: url(#{$imgCdnPath + 'pc/flower-2.png'});
+                        } @else if $i == 5 {
+                            background-image: url(#{$imgCdnPath + 'pc/flower-2.png'});
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .popFlower{
+        &-anime{
+            transform-origin: right;
+            left: #{math.div(1554px, $topCardWidth_pc) * 100%};
+            top: #{math.div(264px, $topCardHeight_pc) * 100%};
+            $w: 161px;
+            $h: 152px;
+            @include getImgBoxSize($w, $h, $topCardWidth_pc);
+            position: absolute;
+            @include mob-width {
+                left: #{math.div(41px, $topCardWidth_mb) * 100%};
+                top: #{math.div(707px, $topCardHeight_mb) * 100%};
+                $w: 146px;
+                $h: 138px;
+                @include getImgBoxSize($w, $h, $topCardWidth_mb);
+            }
+            &-obj{
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                background: url(#{$imgCdnPath +'pc/flower.png'}) no-repeat center;
+                background-size: 100%;
+            }
+        }
+    }
+    .date{
+        pointer-events: none;
+        &-anime{
+            transform-origin: right;
+            left: #{math.div(1368px, $topCardWidth_pc) * 100%};
+            top: #{math.div(124px, $topCardHeight_pc) * 100%};
+            $w: 251px;
+            $h: 251px;
+            @include getImgBoxSize($w, $h, $topCardWidth_pc);
+            position: absolute;
+            z-index: 3;
+            @include mob-width {
+                left: #{math.div(425px, $topCardWidth_mb) * 100%};
+                top: #{math.div(331px, $topCardHeight_mb) * 100%};
+                $w: 201px;
+                $h: 201px;
+                @include getImgBoxSize($w, $h, $topCardWidth_mb);
+            }
+            &-obj{
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                background: url(#{$imgCdnPath +'pc/date.png'}) no-repeat center;
+                background-size: 100%;
+            }
+        }
+    }
+    .hand{
+        pointer-events: none;
+        .arrow1{
+            &-anime{
+                opacity: 0;
+                left: #{math.div(1148px, $topCardWidth_pc) * 100%};
+                top: #{math.div(560px, $topCardHeight_pc) * 100%};
+                $w: 66px;
+                $h: 50px;
+                @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                position: absolute;
+                z-index: 3;
+                @include mob-width {
+                    left: #{math.div(351px, $topCardWidth_mb) * 100%};
+                    top: #{math.div(776px, $topCardHeight_mb) * 100%};
+                    $w: 53px;
+                    $h: 57px;
+                    @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                }
+                &-obj{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: url(#{$imgCdnPath +'pc/arrow.png'}) no-repeat center;
+                    background-size: 100%;
+                    @include mob-width {
+                        background: url(#{$imgCdnPath +'mb/arrow.png'}) no-repeat center;
+                        background-size: 100%;
+                    }
+                }
+            }
+        }
+        .arrow2{
+            &-anime{
+                opacity: 0;
+                left: #{math.div(1271px, $topCardWidth_pc) * 100%};
+                top: #{math.div(506px, $topCardHeight_pc) * 100%};
+                $w: 75px;
+                $h: 37px;
+                @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                position: absolute;
+                z-index: 3;
+                @include mob-width {
+                    left: #{math.div(443px, $topCardWidth_mb) * 100%};
+                    top: #{math.div(700px, $topCardHeight_mb) * 100%};
+                    $w: 64px;
+                    $h: 43px;
+                    @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                }
+                &-obj{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: url(#{$imgCdnPath +'pc/arrow2.png'}) no-repeat center;
+                    background-size: 100%;
+                    @include mob-width {
+                        background: url(#{$imgCdnPath +'mb/arrow2.png'}) no-repeat center;
+                        background-size: 100%;
+                    }
+                }
+            }
+        }
+        .handIcon{
+            &-anime{
+                opacity: 0;
+                left: #{math.div(1201px, $topCardWidth_pc) * 100%};
+                top: #{math.div(510px, $topCardHeight_pc) * 100%};
+                $w: 157px;
+                $h: 213px;
+                @include getImgBoxSize($w, $h, $topCardWidth_pc);
+                position: absolute;
+                z-index: 3;
+                @include mob-width {
+                    left: #{math.div(401px, $topCardWidth_mb) * 100%};
+                    top: #{math.div(727px, $topCardHeight_mb) * 100%};
+                    $w: 160px;
+                    $h: 167px;
+                    @include getImgBoxSize($w, $h, $topCardWidth_mb);
+                }
+                &-obj{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: url(#{$imgCdnPath +'pc/hand.png'}) no-repeat center;
+                    background-size: 100%;
+                    @include mob-width {
+                        background: url(#{$imgCdnPath +'mb/hand.png'}) no-repeat center;
+                        background-size: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.swal2-container {
+    &.ob_customLottery {
+        $boxWidth: 403px;
+        $boxWidth_mb: 403px;
+        $boxWidth_mbs: 270px;
+        .swal2-popup {
+            border-radius: 0;
+            background-color: transparent;
+            width: $boxWidth;
+            @include mob-width {
+                width: $boxWidth_mb;
+            }
+            @include mobs-width {
+                width: $boxWidth_mbs;
+            }
+        }
+        .swal2-html-container {
+            margin: 0;
+        }
+        .swal2-actions {
+            margin-top: 0;
+        }
+        &.swal2-backdrop-show,
+        &.swal2-noanimation {
+        }
+        .swal2-styled {
+            &.swal2-cancel {
+                border: 0;
+                border-radius: 50%;
+                background: initial;
+                background-color: #000;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                top: 0;
+                left: 90%;
+                margin: 0;
+                transition: all 0.25s ease;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                font-size: 0;
+                @include mob-width {
+                }
+                @include mobs-width {
+                    width: 30px;
+                    height: 30px;
+                }
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 3px;
+                    height: 24px;
+                    border-radius: 99em;
+                    background-color: #fff;
+                    display: block;
+                    @include mob-width {
+                    }
+                    @include mobs-width {
+                        width: 2px;
+                        height: 15px;
+                    }
+                }
+                &::before {
+                    transform: rotate(-45deg);
+                }
+                &::after {
+                    transform: rotate(45deg);
+                }
+                &:hover {
+                    background-color: #eb7878;
+                }
+            }
+            &.swal2-confirm {
+                font-family: $font-Btn;
+                padding: 0;
+                font-weight: bold;
+                text-align: left;
+                color: #916e6e;
+                cursor: pointer;
+                transition: all 0.1s ease;
+                position: absolute;
+                font-size: 22px;
+                line-height: 1.2;
+                overflow: hidden;
+                width: 190px;
+                left: 105px;
+                top: 300px;
+                background: none;
+                border-color: transparent;
+                @include user-select-none();
+                @include mobs-width {
+                    width: 120px;
+                    left: 75px;
+                    top: 200px;
+                    font-size: 13px;
+                }
+                &:hover {
+                    // background-color: #caa77c;
+                    //background-color: #000;
+                    color: #eb7878;
+                    background: none;
+                    transform: translate(0px, -2px);
+                    &:before {
+                        border-color: #eb7878;
+                        transform: translate(0px, -1px);
+                    }
+                    &:after {
+                        border-color: #eb7878;
+                        transform: translate(0px, -1px) rotate(30deg);
+                    }
+                }
+                &::before{
+                    content: '';
+                    width: 39px;
+                    border-style: solid;
+                    border-width: 1px 0 0 0;
+                    border-color: #916e6e;
+                    position: absolute;
+                    top: 15px;
+                    left: 140px;
+                    @include mobs-width {
+                        left: 85px;
+                        top: 8px;
+                        width: 25px;
+                    }
+                }
+                &::after{
+                    content: '';
+                    width: 14px;
+                    border-style: solid;
+                    border-width: 1px 0 0 0;
+                    border-color: #916e6e;
+                    transform: rotate(30deg);
+                    position: absolute;
+                    top: 11px;
+                    left: 165px;
+                    @include mobs-width {
+                        top: 5px;
+                        left: 100px;
+                    }
+                }
+            }
+        }
+
+        .ev-pop-container {
+            .ev-pop-title {
+                position: absolute;
+                $w: 196px;
+                $h: 31px;
+                top: 87px;
+                left: 103px;
+                @include getImgBoxSize($w, $h, $boxWidth);
+                background: url(#{$imgCdnPath + 'pc/popTitle.png'})
+                    no-repeat center;
+                background-size: 100%;
+                // margin: 43px auto 49px auto;
+                @include mobs-width {
+                    top: 20%;
+                    left: 25%;
+                }
+            }
+            .ev-pop-body {
+                $w: 403px;
+                $h: 397px;
+                @include getImgBoxSize($w, $h, $boxWidth);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100%;
+                background-image: url(#{$imgCdnPath + 'pc/popbg.png'});
+                margin: 0 auto;
+                .popFlower1{
+                    position: absolute;
+                    $w: 77px;
+                    $h: 127px;
+                    top: 171px;
+                    left: -13px;
+                    @include getImgBoxSize($w, $h, $boxWidth);
+                    background: url(#{$imgCdnPath + 'pc/popflower.png'})
+                        no-repeat center;
+                    background-size: 100%;
+                    @include mobs-width {
+                        top: 110px;
+                        left: -10px;
+                    }
+                }
+                .popFlower2{
+                    position: absolute;
+                    $w: 37px;
+                    $h: 42px;
+                    top: 132px;
+                    left: 47px;
+                    @include getImgBoxSize($w, $h, $boxWidth);
+                    background: url(#{$imgCdnPath + 'pc/flower-1.png'})
+                        no-repeat center;
+                    background-size: 100%;
+                    @include mobs-width {
+                        top: 80px;
+                        left: 35px;
+                    }
+                }
+                .popFlower3{
+                    position: absolute;
+                    $w: 93px;
+                    $h: 54px;
+                    top: 168px;
+                    left: 268px;
+                    @include getImgBoxSize($w, $h, $boxWidth);
+                    background: url(#{$imgCdnPath + 'pc/popflower2.png'})
+                        no-repeat center;
+                    background-size: 100%;
+                    @include mobs-width {
+                        top: 105px;
+                        left: 180px;
+                    }
+                }
+                .resultBox_outer {
+                    width: 100%;
+                    position: absolute;
+                    top: 35%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    @include mobs-width {
+                        top: 32%;
+                    }
+                }
+                .resultBox {
+                    //font-weight: bold;
+                    //line-height: 0.58;
+                    text-align: center;
+                    color: #000000;
+                    //text-shadow: 0 0 9px #ed3b62;
+                    //text-shadow: 1px 0px 15px #ed3b62, 0px 1px 15px #ed3b62, -1px 0px 15px #ed3b62, 0px -1px 15px #ed3b62;
+                    .amountTxt{
+                        letter-spacing: 2.52px;
+                        font-size: 42px;
+                        font-weight: 300;
+                        letter-spacing: 3.78px;
+                        text-align: center;
+                        color: #916e6e;
+                        font-family: $fontfamily4;
+                        line-height: 1;
+                        @include mobs-width {
+                            font-size: 28px;
+                        }
+                    }
+                    .amountdes{
+                        display: inline-flex;
+                        align-items: end;
+                        .text {
+                            margin-left: 5px;
+                            font-size: 32px;
+                            font-weight: 300;
+                            font-family: $fontfamily4;
+                            background-color: #e65757;
+                            border-radius: 50%;
+                            width: 51px;
+                            height: 52px;
+                            z-index: 2;
+                            color: white;
+                            @include mobs-width {
+                                font-size: 25px;
+                                width: 40px;
+                                height: 40px;
+                            }
+                        }
+                        .text2 {
+                            font-size: 32px;
+                            font-weight: 300;
+                            font-family: $fontfamily4;
+                            background-color:  #eb7878;
+                            border-radius: 50%;
+                            width: 51px;
+                            height: 52px;
+                            margin-left: -8px;
+                            z-index: 1;
+                            color: white;
+    
+                            @include mobs-width {
+                                margin-left: -6px;
+                                font-size: 25px;
+                                width: 40px;
+                                height: 40px;
+                            }
+                        }
+                        .amount {
+                            margin-top: 20px;
+                            font-family: $font-Btn;
+                            letter-spacing:0.77px;
+                            font-size: 85.5px;
+                            font-weight: bold;
+                            color: #f55;
+                            letter-spacing: -5.4px;
+                            line-height: 0.8;
+                            // @include mob-width {
+                            //     font-size: 36px;
+                            // }
+                            @include mobs-width {
+                                margin-top: 20px;
+                                font-size: 60px;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+@keyframes pickFlag_fadeInOut {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(70%) rotate(-90deg);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1) translateY(0%) rotate(0deg);
+    }
+    30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
